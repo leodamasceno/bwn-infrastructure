@@ -1,10 +1,10 @@
 # Provider variables
 variable "aws_access_key" {
-  default = "AKIAJLHFI3M7ALFR7QIA"
+  default = "AKIAJAA6YUREZV2FJ7JQ"
 }
 
 variable "aws_secret_key" {
-  default = "6yfAPb9H/Gzv61Og0Ch/WCSOroXr4u5CwQBBuf+L"
+  default = "scM5U/7xmV6d/CMdf6A0VMhT4X2En3HpG9NQePAM"
 }
 
 variable "aws_region" {
@@ -65,4 +65,37 @@ variable "instance_lc_key_name" {
 
 variable "instance_asg_name" {
   default = "application-asg"
+}
+
+# RDS
+variable "rds_instances_count" {
+  default = 1
+}
+
+variable "rds_cluster_name" {
+  default = "application-db-cluster"
+}
+
+variable "rds_instance_name" {
+  default = "application-db"
+}
+
+variable "rds_instance_type" {
+  default = "db.r4.large"
+}
+
+variable "rds_cluster_az" {
+  default = ["us-east-1a", "us-east-1b"]
+}
+
+variable "rds_db_name" {
+  default = "application_db"
+}
+
+variable "rds_admin_user" {
+  default = "app_master"
+}
+
+variable "rds_admin_pw" {
+  default = "nJakLiYt91Ba3"
 }

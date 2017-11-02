@@ -57,3 +57,30 @@ resource "aws_security_group" "application-admin-sg" {
     cidr_blocks     = ["0.0.0.0/0"]
   }
 }
+
+resource "aws_security_group" "application-rds-sg" {
+  name        = "application-rds-sg"
+  description = "Allow inbound traffic on the port 5432 from subnets"
+  vpc_id      = "${aws_vpc.vpc-prod.id}"
+
+  ingress {
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = "tcp"
+    cidr_blocks = ["${var.prod_private_subnet1_cidr}"]
+  }
+
+  ingress {
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = "tcp"
+    cidr_blocks = ["${var.prod_private_subnet2_cidr}"]
+  }
+
+  egress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+}
