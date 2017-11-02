@@ -21,4 +21,5 @@ resource "aws_rds_cluster" "rds_cluster" {
   master_username         = "${var.rds_admin_user}"
   master_password         = "${var.rds_admin_pw}"
   db_subnet_group_name    = "${aws_db_subnet_group.rds_private_db_subnet.name}"
+  skip_final_snapshot     = "true"
 }

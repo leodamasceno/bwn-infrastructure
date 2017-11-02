@@ -11,7 +11,9 @@
  └── internet-gateway.tf
  └── load-balancer.tf
  └── provider.tf
+ └── rds.tf
  └── route-table.tf
+ └── s3.tf
  └── security-groups.tf
  └── subnet.tf
  |── user_data
@@ -26,7 +28,9 @@ All the files are listed above. Please check the following comments which explai
 - internet-gateway.tf: The internet gateway (IGW) is created by this file, allowing the subnet via route tables to connect to the internet.
 - load-balancer.tf: This file is responsible for the creation of the load balancer and its health checks.
 - provider.tf: It sets the AWS credentials and region used by Terraform.
-- route-table.tf: The route table will be created by this file and associated to the subnets (Private 1 and Private 2)
+- rds.tf: This file stores the RDS cluster and instance configuration.
+- route-table.tf: The route table will be created by this file and associated to the subnets (Private 1 and Private 2).
+- s3.tf: This is not a configuration file to build the infrastructure. This file is used to share the tfstate file via AWS S3.
 - security-groups.tf: It creates the three security groups, one for the ELB allowing access via port 80, another SG (Security Group) for the web access to the instances and one more to allow admin access to the instances via SSH.
 - subnet.tf: It creates the two private subnets, one in each availability zone (us-east-1a and us-east-1b).
 - user_data: This directory stores the *pp-config.sh script, used by terraform to install tomcat8 and start it.
